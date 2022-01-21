@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.10'
+}
+
+compileJava {
+    options.compilerArgs << '-parameters'
+}
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    version = "17"
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
+sourceSets {
+    main{
+        java {
+            srcDirs = ['src']
+        }
+    }
+}
+
+dependencies {
+    implementation 'junit:junit:4.13.2'
+    implementation files('lib/commons-cli-1.5.0.jar')
+    implementation files('lib/javafx.base.jar')
+    implementation files('lib/javafx.controls.jar')
+    implementation files('lib/javafx.swing.jar')
+}
+
+application {
+    mainClass = 'Controller.Launcher'
+}
